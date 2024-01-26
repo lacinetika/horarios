@@ -110,24 +110,43 @@ def get_activites_of_a_month(year: int, month: int):
     _calculate_next_date(end_date, save_date)
     return activities
 
+def properes(number):
+    today = datetime.now()
+    # loop to get the next 3 months activites on an array of activities
+    activities = []
+    next = None
+    for i in range(number):
+        if(next is not None):
+            today = next.date
+        next = next_activity_from_date(today)
+        activities.append(next)
+    return activities # Flat activities array
+
+
 
 def test():
+    msg = ""
+    for activity in properes(6):
+        # format the message
+        msg += "🌟" + activity.telegram_repr + "\n"
+    print(msg)
     # Example usage
-    end_date = "2024-01-27"
-    end_date = datetime.strptime(end_date, '%Y-%m-%d')
-    # Calculate next activity
-    activity_dates = next_activity_from_date(end_date)
-    print("Next activity", activity_dates)
-    # Calculate activity dates
-    activity_dates = get_activities_between_dates(datetime(2024, 10, 22))
-    print("From now to endate", )
-    for activity in activity_dates:
-       print(activity)
-    # Calculate activity by month
-    year = 2024
-    month = 2
-    print("For month", year, month)
-    # Calculate activity dates for the specified month
-    activity_dates_month = get_activites_of_a_month(year, month)
-    for activity in activity_dates_month:
-        print(activity)
+    # end_date = "2024-01-27"
+    # end_date = datetime.strptime(end_date, '%Y-%m-%d')
+    # # Calculate next activity
+    # activity_dates = next_activity_from_date(end_date)
+    # print("Next activity", activity_dates)
+    # # Calculate activity dates
+    # activity_dates = get_activities_between_dates(datetime(2024, 10, 22))
+    # print("From now to endate", )
+    # for activity in activity_dates:
+    #    print(activity)
+    # # Calculate activity by month
+    # year = 2024
+    # month = 2
+    # print("For month", year, month)
+    # # Calculate activity dates for the specified month
+    # activity_dates_month = get_activites_of_a_month(year, month)
+    # for activity in activity_dates_month:
+    #     print(activity)
+

@@ -27,18 +27,11 @@ def properes(update, context):
     :return:
     """
     logger.info("properes command requested")
-
-    today = datetime.now()
-    # loop to get the next 3 months activites on an array of activities
     msg = ""
-    for i in range(3):
-        next_month = today.month + i
-        next_month_activities = get_activites_of_a_month(today.year, next_month)
-        # loop to get the activities on the array of activities
-        for activity in next_month_activities:
-            # format the message
-            msg += "🌟" + activity.telegram_repr + "\n"
-            # send the message
+    for activity in properes(6):
+        # format the message
+        msg += "🌟" + activity.telegram_repr + "\n"
+        # send the message
     update.message.reply_text(msg, parse_mode=ParseMode.MARKDOWN)
 
 
