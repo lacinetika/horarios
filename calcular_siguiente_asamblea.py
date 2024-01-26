@@ -110,7 +110,8 @@ def get_activites_of_a_month(year: int, month: int):
     _calculate_next_date(end_date, save_date)
     return activities
 
-def properes(number):
+
+def properes_numero(number):
     today = datetime.now()
     # loop to get the next 3 months activites on an array of activities
     activities = []
