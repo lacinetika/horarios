@@ -22,6 +22,12 @@ class Activity:
         day = self.date.strftime('%A').lower()
         return f"{day} {self.date.strftime('%Y-%m-%d')} {self.time} {self.name}"
 
+    # Property of the activity representation to send on a telegram message
+    @property
+    def telegram_repr(self):
+        return f"{self.date.strftime('%A, *%d* de *%B* a las *%H:%M*')} en horari de  *{self.name}*"
+
+
 
 def parse_schedule(json_data):
     json_schedule = json.loads(json_data)
@@ -125,5 +131,3 @@ def test():
     activity_dates_month = get_activites_of_a_month(year, month)
     for activity in activity_dates_month:
         print(activity)
-
-test()
