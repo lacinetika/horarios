@@ -1,0 +1,14 @@
+[Unit]
+Description=Horarios para la assamblea del gym de la cine
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=user
+Type=forking
+WorkingDirectory=/home/user/CinetikaHorarios
+ExecStart=/home/user/CinetikaHorarios/run.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
