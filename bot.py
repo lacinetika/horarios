@@ -1,8 +1,7 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
-import logging
 
 from bot_commands import COMMANDS
-from settings import BOT_TOKEN
+from secrets import BOT_TOKEN
 
 
 # Define command handlers. These usually take the two arguments update and context.

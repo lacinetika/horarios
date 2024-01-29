@@ -12,8 +12,6 @@ SCHEDULES = '''
 }
 '''
 
-BOT_TOKEN="6499910695:AAHQKujEQ5vvOR0KDvkqilNKdxDaHxYLXvU"
-
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
