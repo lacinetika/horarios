@@ -5,9 +5,9 @@ START_DATE = "2023-11-14"
 SCHEDULES = '''
 {
     "monday": { "18:00": "💥Thai", "20:30": "🥊Box" },
-    "tuesday": { "19:30": "💥Thai" },
+    "tuesday": { "18:00": "🥋Ninjutsu", "19:30": "💥Thai" },
     "wednesday": { "18:00": "💥Thai", "20:30": "🥊Box" },
-    "thursday": { "19:30": "💥Thai" },
+    "thursday": { "18:00": "🥋Ninjutsu", "19:30": "💥Thai" },
     "friday": { "17:30": "🏋️‍♂️Entrenament Lliure" }
 }
 '''
