@@ -1,7 +1,7 @@
 from datetime import datetime
 from telegram import ParseMode
 from calcular_siguiente_asamblea import next_activity_from_date, Activity, get_activites_of_a_month, properes_numero
-from settings import logger
+from settings import logger, PROPERES_COUNT
 
 
 def ajuda(update, context):
@@ -28,7 +28,7 @@ def properes(update, context):
     """
     logger.info("properes command requested")
     msg = ""
-    for activity in properes_numero(6):
+    for activity in properes_numero(PROPERES_COUNT):
         # format the message
         msg += "🌟" + activity.telegram_repr + "\n"
         # send the message
