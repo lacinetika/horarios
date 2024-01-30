@@ -1,13 +1,18 @@
 from datetime import datetime
 from telegram import ParseMode
 from calcular_siguiente_asamblea import next_activity_from_date, Activity, get_activites_of_a_month, properes_numero
-from settings import logger, PROPERES_COUNT
+from settings import logger, PROPERES_COUNT, MISSATGE_BENVINGUDA
+
+
+def missatge_de_benvinguda(update):
+    update.message.reply_text(MISSATGE_BENVINGUDA, disable_web_page_preview=True)
 
 
 def ajuda(update, context):
-    msg = 'Lista de comandos disponibles:\n\n'
-    msg += "\n".join('/' + k + ': ' + v.description for k, v in COMMANDS.items())
     logger.info("ajuda command requested")
+    missatge_de_benvinguda(update)
+    msg = 'Llista de comandes disponibles:\n\n'
+    msg += "\n".join('/' + k + ': ' + v.description for k, v in COMMANDS.items())
     update.message.reply_text(msg)
 
 
