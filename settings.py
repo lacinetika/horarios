@@ -14,6 +14,8 @@ SCHEDULES = '''
 
 PROPERES_COUNT=10 # Number of next classes to show
 
+GANCIO_URL="https://des.convoca.la"
+
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
                     level=logging.INFO)
