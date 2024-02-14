@@ -81,15 +81,12 @@ class NetworkService:
         """Make a POST request to a specific endpoint."""
         logger.info(f"Post multipart {endpoint} with data {data}, {file_path}")
 
-        headers = {
-            'Content-Type': 'multipart/form-data',
-        }
         files = {
             'image': (file_path, open(file_path, 'rb')),
         }
 
         try:
-            response = self.session.post(f"{self.base_url}{endpoint}", headers=headers, data=data, files=files)
+            response = self.session.post(f"{self.base_url}{endpoint}", data=data, files=files)
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:

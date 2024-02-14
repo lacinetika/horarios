@@ -13,6 +13,7 @@ def main():
     # print(places)
     gancio = GancioSDK(GANCIO_URL, GANCIO_USER, GANCIO_PASS)
     gancio.login()
+    print(gancio.places())
     event = GancioEvent(
         title="Test event",
         description="This is a test event",
