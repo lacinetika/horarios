@@ -1,6 +1,6 @@
 from datetime import datetime, timedelta
 
-from calcular_siguiente_asamblea import get_activities_between_dates, Activity
+from calcular_siguiente_asamblea import get_activities_between_dates, Activity, next_activity_from_date
 from gancio_sdk import GancioSDK, GancioEvent
 from secrets import GANCIO_PASS, GANCIO_USER
 from settings import GANCIO_URL, GANCIO_IMG, GANCIO_DESCRIPTION, GANCIO_TITLE, logger, GANCIO_TAGS, GANCIO_PLACE_ID
@@ -43,6 +43,11 @@ def publish_if_yesterday():
         publish_activity(next_activity)
     else:
         logger.info(f"No event to publish for publish_if_yesterday")
+
+def publish_next():
+    activity = next_activity_from_date(datetime.now())
+    publish_activity(activity)
+
 
 
 
