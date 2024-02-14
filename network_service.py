@@ -1,4 +1,5 @@
 import json
+from typing import BinaryIO
 
 from network_endpoints import LOGIN_PATH
 from secrets import GANCIO_USER, GANCIO_PASS
@@ -30,7 +31,6 @@ class NetworkService:
             # r.request.headers["Authorization"] = session.headers["Authorization"]
             return self.session.send(response.request, verify=False)
 
-
     def login(self, user, password):
         """Stores the tags and asks publish the event."""
         logger.info("Requesting new token")
@@ -52,8 +52,6 @@ class NetworkService:
             logger.info("New token got")
 
         else:
-            print(response)
-            print(response.text)
             logger.info("Request token failed")
             logger.info(response.text, response.status_code)
 
@@ -64,17 +62,38 @@ class NetworkService:
             response.raise_for_status()  # Raises a HTTPError if the response status code is 4XX/5XX
             return response.json()  # Returns the json-encoded content of a response, if any
         except requests.exceptions.RequestException as e:
-            print(f'An error occurred: {e}')
+            logger.error(f'An error occurred: {e}')
             return None
 
     def post(self, endpoint, data=None):
         """Make a POST request to a specific endpoint."""
+        logger.info(f"Post {endpoint} with data {data}")
+
         try:
             response = self.session.post(f'{self.base_url}{endpoint}', json=data)
             response.raise_for_status()
             return response.json()
         except requests.exceptions.RequestException as e:
-            print(f'An error occurred: {e}')
+            logger.error(f'An error occurred: {e}')
+            return None
+
+    def post_multipart(self, endpoint, data, file_path: str):
+        """Make a POST request to a specific endpoint."""
+        logger.info(f"Post multipart {endpoint} with data {data}, {file_path}")
+
+        headers = {
+            'Content-Type': 'multipart/form-data',
+        }
+        files = {
+            'image': (file_path, open(file_path, 'rb')),
+        }
+
+        try:
+            response = self.session.post(f"{self.base_url}{endpoint}", headers=headers, data=data, files=files)
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.RequestException as e:
+            logger.error(f'An error occurred: {e}')
             return None
 
 
