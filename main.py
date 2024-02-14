@@ -22,7 +22,7 @@ def main():
         end_date=datetime.now() + timedelta(days=2),
         tags=["test", "event"],
         place_id=3,
-        image_path="test.jpg"
+        image_path="cine.jpg"
     )
     gancio.publish_event(event)
 

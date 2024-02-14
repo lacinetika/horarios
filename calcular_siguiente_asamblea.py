@@ -91,7 +91,7 @@ def next_activity_from_date(today_date: datetime):
     return activity
 
 
-def get_activities_between_dates(end_date: datetime):
+def get_activities_between_dates(end_date: datetime) -> list[Activity]:
     # List to store all activity dates
     activities = []
     _calculate_next_date(end_date, lambda a: activities.append(a))

@@ -63,7 +63,7 @@ class NetworkService:
             return response.json()  # Returns the json-encoded content of a response, if any
         except requests.exceptions.RequestException as e:
             logger.error(f'An error occurred: {e}')
-            return None
+            raise e
 
     def post(self, endpoint, data=None):
         """Make a POST request to a specific endpoint."""
@@ -75,7 +75,7 @@ class NetworkService:
             return response.json()
         except requests.exceptions.RequestException as e:
             logger.error(f'An error occurred: {e}')
-            return None
+            raise e
 
     def post_multipart(self, endpoint, data, file_path: str):
         """Make a POST request to a specific endpoint."""
@@ -91,7 +91,7 @@ class NetworkService:
             return response.json()
         except requests.exceptions.RequestException as e:
             logger.error(f'An error occurred: {e}')
-            return None
+            raise e
 
 
 
