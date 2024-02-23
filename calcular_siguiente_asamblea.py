@@ -3,6 +3,7 @@ from datetime import datetime, timedelta, date
 from calendar import monthrange
 from typing import Callable
 
+import settings
 from settings import START_DATE, SCHEDULES
 
 start_date = datetime.strptime(START_DATE, '%Y-%m-%d')
@@ -87,6 +88,11 @@ def next_activity_from_date(today_date: datetime):
     :param today_date:
     :return:
     """
+    # Used to show activites from a specific date
+    if settings.COUNT_FROM:
+        new_today_date = datetime.strptime(settings.COUNT_FROM, '%Y-%m-%d')
+        if new_today_date > today_date:
+            today_date = new_today_date
     activity = _calculate_next_date(today_date)
     return activity
 

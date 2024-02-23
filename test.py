@@ -1,12 +1,20 @@
-from calcular_siguiente_asamblea import properes_numero
+from datetime import datetime
+
+from calcular_siguiente_asamblea import properes_numero, next_activity_from_date
 
 
 def test():
     msg = ""
-    for activity in properes_numero(20):
+    # Calcular next from today
+    print(next_activity_from_date(datetime.now()))
+
+    # Calcular properes
+    for activity in properes_numero(12):
         # format the message
         msg += "🌟" + activity.telegram_repr + "\n"
     print(msg)
+
+
     # Example usage
     # end_date = "2024-01-27"
     # end_date = datetime.strptime(end_date, '%Y-%m-%d')

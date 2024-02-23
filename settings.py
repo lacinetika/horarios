@@ -1,7 +1,15 @@
 import locale
 import logging
 
-START_DATE = "2023-11-14"
+# First activity date
+START_DATE = "2023-12-22"
+# Start counting from this date
+# Using to hide the first activities if needed. (for example the next activity is on friday but
+# is a festivity and you want to show the next activity on monday. So, start from here to hide the
+# friday activity
+# Used on function
+COUNT_FROM = "2024-03-01"
+
 SCHEDULES = '''
 {
     "monday": { "18:00": "💥Thai", "20:30": "🥊Box" },
