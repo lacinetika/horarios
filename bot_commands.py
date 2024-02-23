@@ -52,3 +52,4 @@ COMMANDS = {
     'proxima': Command(proxima, args=False, description='En quin horari es la pròxima assemblea?'),
     'properes': Command(properes, args=False, description='Horaris de les properes (poden estar subjectes a canvis, mirar regularment)'),
 }
+

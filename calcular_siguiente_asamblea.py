@@ -6,7 +6,7 @@ from typing import Callable
 import settings
 from settings import START_DATE, SCHEDULES
 
-start_date = datetime.strptime(START_DATE, '%Y-%m-%d')
+settings_start_date = datetime.strptime(START_DATE, '%Y-%m-%d')
 json_data = SCHEDULES
 day_names = ["monday", "tuesday", "wednesday", "thursday", "friday"]
 
@@ -55,7 +55,9 @@ def _find_next_activity_of_day(times, last_time):
         return next_activity_time, times[next_activity_time]
 
 
-def _calculate_next_date(end_date: datetime, cb: Callable[[Activity], None] = None):
+def _calculate_next_date(end_date: datetime,
+                         cb: Callable[[Activity], None] = None,
+                         start_date=settings_start_date):
     # Current date for iteration, starting with the start date
     current_date = start_date
     last_activity = {day: None for day in schedule.keys()}  # Track the last activity for each day
@@ -82,18 +84,19 @@ def _calculate_next_date(end_date: datetime, cb: Callable[[Activity], None] = No
     return current_activity
 
 
-def next_activity_from_date(today_date: datetime):
+def next_activity_from_date(today_date: datetime, use_count_from=True, start_date=settings_start_date):
     """
     Calculate the next activity by a given day.
+    :param use_count_from: if true, will check the COUNT_FROM setting
     :param today_date:
     :return:
     """
     # Used to show activites from a specific date
-    if settings.COUNT_FROM:
+    if use_count_from and settings.COUNT_FROM:
         new_today_date = datetime.strptime(settings.COUNT_FROM, '%Y-%m-%d')
         if new_today_date > today_date:
             today_date = new_today_date
-    activity = _calculate_next_date(today_date)
+    activity = _calculate_next_date(today_date, start_date=start_date)
     return activity
 
 
@@ -117,7 +120,7 @@ def get_activites_of_a_month(year: int, month: int):
     return activities
 
 
-def properes_numero(number):
+def properes_numero(number, start_date=settings_start_date):
     today = datetime.now()
     # loop to get the next 3 months activites on an array of activities
     activities = []
@@ -125,6 +128,6 @@ def properes_numero(number):
     for i in range(number):
         if(next is not None):
             today = next.date
-        next = next_activity_from_date(today)
+        next = next_activity_from_date(today, start_date=start_date)
         activities.append(next)
     return activities # Flat activities array
