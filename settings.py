@@ -27,7 +27,7 @@ PROPERES_COUNT=10 # Number of next classes to show
 GANCIO_URL="https://bcn.convoca.la"
 GANCIO_IMG="cine.jpg"
 GANCIO_TITLE="Assamblea Gimnàs La Cinètika"
-GANCIO_DESCRIPTION="Assamblea del gimnàs La Cinètika"
+GANCIO_DESCRIPTION="Assamblea del gimnàs La Cinètika. Més informació a https://lacinetika.wordpress.com/gimnas/"
 GANCIO_TAGS=["gimnàs", "assemblea", "La Cinetika", "autogestió", "Assamblea Gim La Cinètika"]
 GANCIO_PLACE_ID=54 # https://bcn.convoca.la/api/places/
 
