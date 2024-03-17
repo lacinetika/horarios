@@ -44,11 +44,13 @@ def publish_if_yesterday():
     else:
         logger.info(f"No event to publish for publish_if_yesterday")
 
+
 def publish_next():
+    logger.info("Publishing next event")
     activity = next_activity_from_date(datetime.now())
     publish_activity(activity)
 
 
-
-
-publish_if_yesterday()
+if __name__ == "__main__":
+    logger.info("Publishing if yesterday")
+    publish_if_yesterday()
