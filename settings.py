@@ -20,6 +20,8 @@ SCHEDULES = '''
 }
 '''
 
+BANNED_MESSAGE=["🤖","No tens permisos per fer això"]
+
 PROPERES_COUNT=10 # Number of next classes to show
 
 # GANCIO_URL="https://des.convoca.la"
