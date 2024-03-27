@@ -2,13 +2,13 @@ import locale
 import logging
 
 # First activity date
-START_DATE = "2023-12-22"
+START_DATE = "2023-10-08"
 # Start counting from this date
 # Using to hide the first activities if needed. (for example the next activity is on friday but
 # is a festivity and you want to show the next activity on monday. So, start from here to hide the
 # friday activity
 # Used on function
-COUNT_FROM = "2024-03-01"
+COUNT_FROM = "2024-04-05"
 
 SCHEDULES = '''
 {
@@ -22,7 +22,7 @@ SCHEDULES = '''
 
 BANNED_MESSAGE=["🤖","No tens permisos per fer això"]
 
-PROPERES_COUNT=10 # Number of next classes to show
+PROPERES_COUNT=4 # Number of next classes to show
 
 # GANCIO_URL="https://des.convoca.la"
 # GANCIO_URL="http://192.168.0.19:13120"

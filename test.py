@@ -1,18 +1,22 @@
 from datetime import datetime
 
-from calcular_siguiente_asamblea import properes_numero, next_activity_from_date
+from calcular_siguiente_asamblea import properes_numero, next_activity_from_date, Activity, \
+    find_start_date_from_activity
 
 
 def test():
     msg = ""
+    activity = Activity(("18:00", "💥Thai"), datetime(2024, 4, 10))
+    print(find_start_date_from_activity(activity))
+
     # Calcular next from today
     print(next_activity_from_date(datetime.now()))
-
-    # Calcular properes
-    for activity in properes_numero(12):
-        # format the message
-        msg += "🌟" + activity.telegram_repr + "\n"
-    print(msg)
+    #
+    # # Calcular properes
+    # for activity in properes_numero(4):
+    #     # format the message
+    #     msg += "🌟" + activity.telegram_repr + "\n"
+    # print(msg)
 
 
     # Example usage

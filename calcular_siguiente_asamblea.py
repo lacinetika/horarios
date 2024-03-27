@@ -13,8 +13,8 @@ day_names = ["monday", "tuesday", "wednesday", "thursday", "friday"]
 
 class Activity:
     def __init__(self, activity, date: datetime):
-        self.name = activity[1]
         self.time = activity[0]
+        self.name = activity[1]
         self.date = date
         # Add the time to the date
         self.date = datetime.combine(date, datetime.strptime(self.time, '%H:%M').time())
@@ -131,3 +131,21 @@ def properes_numero(number, start_date=settings_start_date):
         next = next_activity_from_date(today, start_date=start_date)
         activities.append(next)
     return activities # Flat activities array
+
+
+def find_start_date_from_activity(activity: Activity):
+    start_date = datetime(2023, 10, 2)
+    today = activity.date + timedelta(days=-1) # Use the day before to the activity day you want to find
+    current_date = start_date
+    for i in range(365):
+        try:
+            candidate = next_activity_from_date(today_date=today, use_count_from=False, start_date=current_date)
+            print(i, "candidate", candidate, current_date)
+            if candidate.date == activity.date and \
+                    candidate.name == activity.name and candidate.time == activity.time:
+                return current_date
+        except KeyError:
+            print(KeyError)
+        current_date += timedelta(days=1)
+
+
