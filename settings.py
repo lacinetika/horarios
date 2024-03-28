@@ -56,4 +56,4 @@ Aquí unes octavetes que expliquen el projecte 🙂
 https://lacinetika.files.wordpress.com/2023/10/octavila-castellano.pdf
 """
 
-NEXT_ACT_IMAGE="activity_image/activity.jpg"
+NEXT_ACT_IMAGE="web/activity.jpg"
