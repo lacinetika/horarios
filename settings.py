@@ -2,7 +2,8 @@ import locale
 import logging
 
 # First activity date
-START_DATE = "2023-10-08"
+# START_DATE = "2023-10-08"
+START_DATE = "2023-10-09"
 # Start counting from this date
 # Using to hide the first activities if needed. (for example the next activity is on friday but
 # is a festivity and you want to show the next activity on monday. So, start from here to hide the
