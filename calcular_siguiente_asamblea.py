@@ -1,9 +1,10 @@
 import json
-from datetime import datetime, timedelta, date
+from datetime import datetime, timedelta
 from calendar import monthrange
 from typing import Callable
 
 import settings
+from utils.remove_emojis import remove_emojis
 from settings import START_DATE, SCHEDULES
 
 settings_start_date = datetime.strptime(START_DATE, '%Y-%m-%d')
@@ -27,6 +28,13 @@ class Activity:
     @property
     def telegram_repr(self):
         return f"{self.date.strftime('%A, *%d* de *%B* a las *%H:%M*')} en horari de  *{self.name}*"
+
+    # Send the activity text on a format to be written on the image
+    @property
+    def img_repr(self):
+        return f"{self.date.strftime('%d de %B a las %H:%M')}\nen horari de {remove_emojis(self.name)}"
+
+
 
 
 

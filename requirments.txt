@@ -3,6 +3,7 @@ cachetools==4.2.2
 certifi==2023.11.17
 charset-normalizer==3.3.2
 idna==3.6
+pillow==10.2.0
 python-telegram-bot==13.7
 pytz==2023.3.post1
 requests==2.31.0
