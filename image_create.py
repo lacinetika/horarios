@@ -29,13 +29,14 @@ def add_string_before_extension(file_name, string_to_add):
 def create_next_activity_image():
     activity: Activity = next_activity_from_date(datetime.now())
     image = create_image(activity.img_repr)
+    file_name = os.path.basename(NEXT_ACT_IMAGE)
     directory_path = os.path.dirname(NEXT_ACT_IMAGE)
     if not os.path.exists(directory_path):
         os.makedirs(directory_path)
     image.save(NEXT_ACT_IMAGE)
     # Saving to a file
     with open(directory_path + '/index.html', 'w') as file:
-        file.write(template.format(image=f"{NEXT_ACT_IMAGE}?nocache={int(time.time())}"))
+        file.write(template.format(image=f"{file_name}?nocache={int(time.time())}"))
 
 
 
