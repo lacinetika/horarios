@@ -73,7 +73,7 @@ def _calculate_next_date(end_date: datetime,
     while True:
         # Calculate the next activity date
         if current_date.weekday() == 4:  # Friday
-            current_date += timedelta(days=10)
+            current_date += timedelta(days=17)
         else:
             current_date += timedelta(weeks=2, days=1)
         day = current_date.strftime('%A').lower()
