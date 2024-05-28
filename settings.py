@@ -12,13 +12,23 @@ COUNT_FROM = "2024-04-05"
 
 SCHEDULES = '''
 {
-    "monday": { "18:00": "💥Thai", "20:30": "🥊Box" },
-    "tuesday": { "18:00": "🥋Ninjutsu", "19:30": "💥Thai" },
-    "wednesday": { "18:00": "💥Thai", "20:30": "🥊Box" },
-    "thursday": { "18:00": "🥋Ninjutsu", "19:30": "💥Thai" },
+    "monday": { "18:00": "💥Thai" },
+    "tuesday": { "18:00": "🥋Ninjutsu" },
+    "wednesday": { "20:30": "🥊Box" },
+    "thursday": { "19:30": "💥Thai" },
     "friday": { "17:30": "🏋️‍♂️Entrenament Lliure" }
 }
 '''
+
+# SCHEDULES = '''
+# {
+#     "monday": { "18:00": "💥Thai", "20:30": "🥊Box" },
+#     "tuesday": { "18:00": "🥋Ninjutsu", "19:30": "💥Thai" },
+#     "wednesday": { "18:00": "💥Thai", "20:30": "🥊Box" },
+#     "thursday": { "18:00": "🥋Ninjutsu", "19:30": "💥Thai" },
+#     "friday": { "17:30": "🏋️‍♂️Entrenament Lliure" }
+# }
+# '''
 
 BANNED_MESSAGE=["🤖","No tens permisos per fer això"]
 
