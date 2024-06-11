@@ -13,9 +13,9 @@ COUNT_FROM = "2024-04-05"
 SCHEDULES = '''
 {
     "monday": { "18:00": "💥Thai" },
-    "tuesday": { "18:00": "🥋Ninjutsu" },
+    "tuesday": { "19:30": "💥Thai" },
     "wednesday": { "20:30": "🥊Box" },
-    "thursday": { "19:30": "💥Thai" },
+    "thursday": { "18:00": "🥋Ninjutsu" },
     "friday": { "17:30": "🏋️‍♂️Entrenament Lliure" }
 }
 '''

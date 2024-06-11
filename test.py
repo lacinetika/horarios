@@ -18,8 +18,9 @@ class TestActivityFunctions(unittest.TestCase):
 
     def test_get_next_activities_from_today(self):
         # Test the next X activities from today
-        result = properes_numero(11)
-        self.assertEqual(len(result), 11)  # Ensure we get 10 activities
+        nexts = 20
+        result = properes_numero(nexts)
+        self.assertEqual(len(result), nexts)  # Ensure we get 10 activities
         msg = ""
         for activity in result:
             msg += "🌟" + activity.telegram_repr + "\n"
